@@ -39,7 +39,7 @@ jobs:
     with:
       name: junit-test-results
       path: build/test-results/test
-
+    
     - name: Test Report
     if: always()  # Ensure this step runs even if tests fail
     uses: dorny/test-reporter@v1
