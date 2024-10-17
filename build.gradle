@@ -9,14 +9,19 @@ repositories {
 dependencies {
     // RestAssured dependencies
     testImplementation 'io.rest-assured:rest-assured:5.3.0'
-
-    // TestNG dependencies
-    testImplementation 'org.testng:testng:7.7.1'
-
-    // JSON parser if needed
+    testImplementation 'io.rest-assured:xml-path:5.5.0'
+    testImplementation 'io.rest-assured:json-path:5.5.0'
+    testImplementation 'org.testng:testng:7.7.1'  // TestNG dependency
+    // I will use this parser for now but I may change it
     testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.15.0'
+    testImplementation 'org.testng:testng:7.7.0' // TestNG dependency
 }
 
+
 test {
-    useTestNG()
+    if (project.hasProperty('suite')) {
+        useTestNG {
+            suites "src/test/resources/${project.suite}"
+        }
+    }
 }

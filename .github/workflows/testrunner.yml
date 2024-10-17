@@ -1,9 +1,18 @@
 name: Run RestAssured Tests
 
 on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
   schedule:
     - cron: '0 0 * * *'  # Run daily at midnight UTC
   workflow_dispatch:
+
 
 jobs:
   build:
@@ -19,8 +28,9 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
 
-    - name: Build with Gradle
-      run: ./gradlew clean build
+    - name: Grant execute permission for Gradlew
+      run: chmod +x gradlew
 
-    - name: Run Tests
-      run: ./gradlew test
+    - name: Build with Gradle
+      run: ./gradlew build -Psuite=UserTestSuite_test.xml
+
