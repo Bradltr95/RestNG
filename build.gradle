@@ -29,4 +29,9 @@ test {
         events "passed", "failed", "skipped"
         showStandardStreams = true
     }
+
+     reports {
+        junitXml.enabled = true
+        html.enabled = true  // Ensure HTML reports are generated
+    }
 }
