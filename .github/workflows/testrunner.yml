@@ -38,10 +38,8 @@ jobs:
         name: test-results
         path: build/test-results/test
 
-    - name: Test Report
-      uses: dorny/test-reporter@v1
+    - name: Upload XML results
+      uses: actions/upload-artifact@v3
       with:
-        name: Test Results
-        path: build/test-results/test/*.xml  # Path to your TestNG report
-        reporter: testng
-        fail-on-error: true
+        name: test-report
+        path: build/reports/tests/test/html/results.html
