@@ -24,9 +24,4 @@ test {
             suites "src/test/resources/${project.suite}"
         }
     }
-
-    testLogging {
-        events "passed", "failed", "skipped"
-        showStandardStreams = true
-    }
 }
