@@ -43,5 +43,5 @@ jobs:
       with:
         name: Test Results
         path: build/test-results/test/*.xml  # Path to your TestNG report
-        reporter: junit  # Use 'junit' since TestNG reports are JUnit-compatible
+        reporter: testng
         fail-on-error: true
