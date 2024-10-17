@@ -21,12 +21,12 @@ public class UserLoginSuccessfully {
         // Validate the response status code
         Assert.assertEquals(response.getStatusCode(), 200, "Status code is not 200");
 
-        // Optionally, you can validate the response body
+        // Validate the response body
         String responseBody = response.getBody().asString();
         Assert.assertTrue(responseBody.contains("page"), "Response body does not contain 'page'");
         Assert.assertTrue(responseBody.contains("data"), "Response body does not contain 'data'");
 
-        // If you want to assert specific user details, you can do that as well
+        // Assert specific user details, you can do that as well
         Assert.assertTrue(responseBody.contains("email"), "Response body does not contain 'email'");
     }
 }
