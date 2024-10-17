@@ -21,7 +21,7 @@ dependencies {
 test {
     if (project.hasProperty('suite')) {
         useTestNG {
-            suites "src/test/resources/${project.suite}.xml"
+            suites "src/test/resources/${project.suite}"
         }
     }
 }
