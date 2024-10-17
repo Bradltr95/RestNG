@@ -31,15 +31,3 @@ jobs:
 
     - name: Run tests
       run: ./gradlew test -Psuite=UserTestSuite_test.xml
-
-    - name: Upload TestNG results
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-results
-        path: build/test-results/test
-
-    - name: Upload XML results
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-report
-        path: build/reports/tests/test/html/results.html 
