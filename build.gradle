@@ -27,9 +27,6 @@ test {
 
     testLogging {
         events "passed", "failed", "skipped"
-    }
-    reports {
-        junitXml.enabled = true
-        html.enabled = true
+        showStandardStreams = true
     }
 }
