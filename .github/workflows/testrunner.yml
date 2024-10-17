@@ -34,16 +34,15 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build -Psuite=UserTestSuite_test.xml
 
-    - name: Upload test results
-    uses: actions/upload-artifact@v3
-    with:
-      name: junit-test-results
-      path: build/test-results/test
-    
-    - name: Test Report
-    if: always()  # Ensure this step runs even if tests fail
-    uses: dorny/test-reporter@v1
-    with:
-      name: Test Results
-      path: build/test-results/test/*.xml  # Path to the generated XML reports
-      reporter: testng  # Correct reporter type for TestNG
+    - name: Upload TestNG test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: testng-test-results
+        path: build/test-results/test
+    - name: test
+      if: always()
+      uses: dorny/test-reporter@v1
+      with:
+        name: Test Results
+        path: build/test-results/test/*.xml
+        reporter: testng
