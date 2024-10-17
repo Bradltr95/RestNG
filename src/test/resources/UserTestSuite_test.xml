@@ -2,7 +2,7 @@
 <suite name="UserTestSuite">
     <test name="GetUsers">
         <classes>
-            <class name="UserLoginTests.UserLoginSuccessfully"/> <!-- Replace with your actual test class path -->
+            <class name="UserLoginTests.UserLoginSuccessfullyTest"/> <!-- Replace with your actual test class path -->
         </classes>
     </test>
 </suite>
