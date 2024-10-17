@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'com.diffplug.spotless' version '6.19.0'
 }
 
 repositories {
@@ -24,4 +25,15 @@ test {
             suites "src/test/resources/${project.suite}"
         }
     }
+}
+
+spotless {
+    java {
+        target 'src/**/*.java'
+        googleJavaFormat()
+    }
+}
+
+tasks.named("check").configure {
+    dependsOn "spotlessCheck"
 }
