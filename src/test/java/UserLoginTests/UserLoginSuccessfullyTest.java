@@ -3,15 +3,21 @@ package UserLoginTests;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class UserLoginSuccessfullyTest {
 
+  @BeforeClass
+  @Parameters("baseUrl")
+  public void setUp(String baseUrl) {
+    RestAssured.baseURI = baseUrl;
+    System.out.println("Base URL is set to: " + baseUrl);
+  }
+
   @Test
   public void testGetUsers() {
-    // Set the base URI
-    RestAssured.baseURI = "https://reqres.in/api";
-
     // Send a GET request to the users endpoint
     Response response = RestAssured.given().when().get("/users?page=2");
 
