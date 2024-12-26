@@ -1,5 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="UserTestSuite">
+    <parameter name="baseUrl" value="https://reqres.in/api"/>
     <test name="GetUsers">
         <classes>
             <class name="UserLoginTests.UserLoginSuccessfullyTest"/> <!-- Replace with your actual test class path -->
