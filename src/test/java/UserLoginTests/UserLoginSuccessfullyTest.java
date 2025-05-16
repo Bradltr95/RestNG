@@ -26,8 +26,8 @@ public class UserLoginSuccessfullyTest {
 
     // Validate the response body
     String responseBody = response.getBody().asString();
-    Assert.assertTrue(responseBody.contains("page"), "Response body does not contain 'page'");
-    Assert.assertTrue(responseBody.contains("data"), "Response body does not contain 'data'");
+    Assert.assertTrue(responseBody.contains("name"), "Response body does not contain 'page'");
+    Assert.assertTrue(responseBody.contains("username"), "Response body does not contain 'data'");
 
     // Assert specific user details, you can do that as well
     Assert.assertTrue(responseBody.contains("email"), "Response body does not contain 'email'");
