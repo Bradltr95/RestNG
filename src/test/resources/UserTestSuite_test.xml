@@ -3,7 +3,8 @@
     <parameter name="baseUrl" value="https://reqres.in/api"/>
     <test name="GetUsers">
         <classes>
-            <class name="UserLoginTests.UserLoginSuccessfullyTest"/> <!-- Replace with your actual test class path -->
+            <class name="UserLoginTests.UserLoginSuccessfullyTest"/>
+            <class name="Users.UsersApiTests"/>
         </classes>
     </test>
 </suite>
