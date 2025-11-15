@@ -1,20 +1,12 @@
 package UserLoginTests;
 
+import TestManager.BaseTest;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class UserLoginSuccessfullyTest {
-
-  @BeforeClass
-  @Parameters("baseUrl")
-  public void setUp(String baseUrl) {
-    RestAssured.baseURI = baseUrl;
-    System.out.println("Base URL is set to: " + baseUrl);
-  }
+public class UserLoginSuccessfullyTest extends BaseTest {
 
   @Test
   public void testGetUsers() {
@@ -28,8 +20,6 @@ public class UserLoginSuccessfullyTest {
     String responseBody = response.getBody().asString();
     Assert.assertTrue(responseBody.contains("name"), "Response body does not contain 'page'");
     Assert.assertTrue(responseBody.contains("username"), "Response body does not contain 'data'");
-
-    // Assert specific user details, you can do that as well
     Assert.assertTrue(responseBody.contains("email"), "Response body does not contain 'email'");
   }
 }
